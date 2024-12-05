@@ -1,37 +1,93 @@
-/* Reseteo de márgenes y padding */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Establece un fondo beige y distribuye todo el contenido */
-body {
-    background-color: #f5f5dc; /* Beige */
-    height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
+:root {
+    --primary-color: #0E466F;   
+    --secondary-color: #A23378; 
+    --accent-color: #D20F75;
+  }
+
+  body, html {
+    height: 100%;
     font-family: Arial, sans-serif;
+    --primary-color: #0E466F;
 }
 
-/* Contenedor para el contenido */
-.container {
+.header {
+    position: fixed; /* El header permanece fijo en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #3498db;
+    color: white;
+    padding: 20px 0; /* Agrega espacio dentro del header */
     text-align: center;
+    z-index: 10;
+    margin-top: 20px; /* Margen superior */
 }
 
-/* Estilo para el enlace */
-.link {
-    display: block;
-    font-size: 0.9em;
-    line-height: 10px;
+.container {
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos en el contenedor */
+    margin: 90px 40px 0;
+    margin-top: 100px; /* Más margen lateral (40px) y margen superior ajustado */
+    gap: 40px; /* Espacio entre los dos divs */
+    height: calc(100vh - 180px); /* Ajusta el contenedor para ocupar todo el espacio restante */
+}
+
+.container > div {
+    flex: 1; /* Los dos divs dentro de .container ocuparán el mismo tamaño */
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Permite que el contenido crezca dentro del div */
+    justify-content: space-between; /* Asegura que el contenido se distribuye bien dentro de cada div */
+}
+
+.footer {
+    position: fixed; /* El footer permanece fijo en la parte inferior */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+iframe {
+    width: 100%;
+    max-width: 575px;
+    height: 250px;
+    margin: 10px 0;
+}
+
+a.link {
+    display: inline-block;
     margin-top: 10px;
     text-decoration: none;
-    color: #000; /* Puedes cambiar el color si lo prefieres */
+    color: #3498db;
 }
 
-/* Estilo para el iframe */
-iframe {
-    border: none;
-    margin-top: 20px;
+/* Estilos Responsivos para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Cambia la dirección de los elementos a columna */
+        gap: 20px; /* Espacio más pequeño entre los divs */
+        margin: 20px 20px; /* Márgenes laterales más pequeños */
+    }
+
+    .container > div {
+        width: 100%; /* Los divs ocupan el 100% del ancho */
+    }
+
+    iframe {
+        max-width: 100%;
+    }
 }
