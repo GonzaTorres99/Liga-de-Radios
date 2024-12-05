@@ -8,86 +8,62 @@
     --primary-color: #0E466F;   
     --secondary-color: #A23378; 
     --accent-color: #D20F75;
-  }
+}
 
-  body, html {
-    height: 100%;
-    font-family: Arial, sans-serif;
-    --primary-color: #0E466F;
+body, html {
+    height: 100%; /* La página ocupa toda la altura de la pantalla */
+    overflow: hidden; /* Elimina cualquier scroll */
+    font-family: Arial, sans-serif; /* Fuente por defecto */
+    display: flex;
+    flex-direction: column; /* Permite organizar el contenido verticalmente */
 }
 
 .header {
-    position: fixed; /* El header permanece fijo en la parte superior */
-    top: 0;
-    left: 0;
+    flex-shrink: 0; /* Evita que el header cambie de tamaño */
     width: 100%;
     background-color: #3498db;
     color: white;
-    padding: 20px 0; /* Agrega espacio dentro del header */
+    padding: 20px 0; /* Espacio dentro del header */
     text-align: center;
-    z-index: 10;
-    margin-top: 20px; /* Margen superior */
 }
 
 .container {
+    flex: 1; /* Hace que el contenedor ocupe el espacio restante */
     display: flex;
-    justify-content: space-between; /* Distribuye los elementos en el contenedor */
-    margin: 90px 40px 0;
-    margin-top: 100px; /* Más margen lateral (40px) y margen superior ajustado */
-    gap: 40px; /* Espacio entre los dos divs */
-    height: calc(100vh - 180px); /* Ajusta el contenedor para ocupar todo el espacio restante */
+    justify-content: space-between; /* Espaciado horizontal entre los divs */
+    gap: 20px; /* Espacio horizontal entre los divs */
+    padding: 20px; /* Espacio interno para el contenedor */
+    margin: 20px; /* Márgenes alrededor del contenedor */
+    overflow: hidden; /* Asegura que no haya scroll dentro del contenedor */
 }
 
 .container > div {
-    flex: 1; /* Los dos divs dentro de .container ocuparán el mismo tamaño */
-    padding: 20px;
-    border: 1px solid #ddd;
+    flex: 1; /* Ambos divs tendrán el mismo ancho */
+    padding: 20px; /* Espacio interno dentro de los divs */
     background-color: #f4f4f4;
+    border: 1px solid #ddd;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column; /* Permite que el contenido crezca dentro del div */
-    justify-content: space-between; /* Asegura que el contenido se distribuye bien dentro de cada div */
+    flex-direction: column; /* Organiza el contenido verticalmente */
+    justify-content: space-between; /* Distribuye el contenido dentro de los divs */
+}
+
+iframe{
+  
+  width: auto;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Ajusta la imagen sin perder proporciones */
 }
 
 .footer {
-    position: fixed; /* El footer permanece fijo en la parte inferior */
-    bottom: 0;
-    left: 0;
+    flex-shrink: 0; /* Evita que el footer cambie de tamaño */
     width: 100%;
     background-color: #3498db;
     color: white;
     text-align: center;
     padding: 10px 0;
-}
-
-
-iframe {
-    width: 100%;
-    max-width: 575px;
-    height: 250px;
-    margin: 10px 0;
-}
-
-a.link {
-    display: inline-block;
-    margin-top: 10px;
-    text-decoration: none;
-    color: #3498db;
-}
-
-/* Estilos Responsivos para pantallas más pequeñas */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Cambia la dirección de los elementos a columna */
-        gap: 20px; /* Espacio más pequeño entre los divs */
-        margin: 20px 20px; /* Márgenes laterales más pequeños */
-    }
-
-    .container > div {
-        width: 100%; /* Los divs ocupan el 100% del ancho */
-    }
-
-    iframe {
-        max-width: 100%;
-    }
 }
