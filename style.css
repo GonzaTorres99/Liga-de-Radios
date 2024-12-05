@@ -1,0 +1,37 @@
+/* Reseteo de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Establece un fondo beige y distribuye todo el contenido */
+body {
+    background-color: #f5f5dc; /* Beige */
+    height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor para el contenido */
+.container {
+    text-align: center;
+}
+
+/* Estilo para el enlace */
+.link {
+    display: block;
+    font-size: 0.9em;
+    line-height: 10px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #000; /* Puedes cambiar el color si lo prefieres */
+}
+
+/* Estilo para el iframe */
+iframe {
+    border: none;
+    margin-top: 20px;
+}
