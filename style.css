@@ -16,12 +16,13 @@ body, html {
     font-family: Arial, sans-serif; /* Fuente por defecto */
     display: flex;
     flex-direction: column; /* Permite organizar el contenido verticalmente */
+    background-color:var(--accent-color);
 }
 
 .header {
     flex-shrink: 0; /* Evita que el header cambie de tamaño */
     width: 100%;
-    background-color: #3498db;
+    background-color: var(--primary-color);
     color: white;
     padding: 20px 0; /* Espacio dentro del header */
     text-align: center;
@@ -31,12 +32,11 @@ body, html {
     flex: 1; /* Hace que el contenedor ocupe el espacio restante */
     display: flex;
     justify-content: space-between; /* Espaciado horizontal entre los divs */
-    gap: 20px; /* Espacio horizontal entre los divs */
+    gap: 50px; /* Espacio horizontal entre los divs */
     padding: 20px; /* Espacio interno para el contenedor */
     margin: 20px; /* Márgenes alrededor del contenedor */
     overflow: hidden; /* Asegura que no haya scroll dentro del contenedor */
 }
-
 .container > div {
     flex: 1; /* Ambos divs tendrán el mismo ancho */
     padding: 20px; /* Espacio interno dentro de los divs */
@@ -45,25 +45,65 @@ body, html {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column; /* Organiza el contenido verticalmente */
-    justify-content: space-between; /* Distribuye el contenido dentro de los divs */
+    justify-content: space-between; /* Espacia los elementos equitativamente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    text-align: center; /* Centra el texto dentro del div */
 }
 
-iframe{
-  
-  width: auto;
+.container > div p {
+    padding: 50px;
+    text-align: justify; /* Justifica el texto en el primer div */
+    margin-bottom: 50px; /* Espacio inferior para separar del iframe */
+}
+
+iframe {
+    width: 100%; /* Asegura que el iframe ocupe el ancho completo del contenedor */
+    height: 200px; /* Ajusta la altura del iframe */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+.link {
+    margin-top: 10px;
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
 }
 
 img {
     width: 100%;
     height: auto;
     object-fit: contain; /* Ajusta la imagen sin perder proporciones */
+    
+}
+
+.container > div:nth-child(2) {
+    border-radius: 100%; /* Redondea el borde del segundo div */
 }
 
 .footer {
     flex-shrink: 0; /* Evita que el footer cambie de tamaño */
     width: 100%;
-    background-color: #3498db;
+    background-color: var(--secondary-color);
     color: white;
     text-align: center;
     padding: 10px 0;
+}
+
+/* Estilos Responsivos para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Cambia la dirección de los elementos a columna */
+        gap: 20px; /* Espacio más pequeño entre los divs */
+        margin: 20px 20px; /* Márgenes laterales más pequeños */
+    }
+
+    .container > div {
+        width: 100%; /* Los divs ocupan el 100% del ancho */
+    }
+
+    iframe {
+        max-width: 100%;
+    }
 }
