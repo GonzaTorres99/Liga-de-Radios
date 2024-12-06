@@ -13,7 +13,7 @@
 body, html {
     height: 100%; /* La página ocupa toda la altura de la pantalla */
     overflow: hidden; /* Elimina cualquier scroll */
-    font-family: Arial, sans-serif; /* Fuente por defecto */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Fuente por defecto */
     display: flex;
     flex-direction: column; /* Permite organizar el contenido verticalmente */
     background-color:var(--accent-color);
@@ -26,23 +26,32 @@ body, html {
     color: white;
     padding: 20px 0; /* Espacio dentro del header */
     text-align: center;
+    position: relative; /* Asegura que el header se mantenga encima */
+    z-index: 1; /* Eleva el header por encima de otros elementos */
+}
+
+.header h1{
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .container {
-    flex: 1; /* Hace que el contenedor ocupe el espacio restante */
+    flex: 1;
     display: flex;
-    justify-content: space-between; /* Espaciado horizontal entre los divs */
-    gap: 50px; /* Espacio horizontal entre los divs */
-    padding: 20px; /* Espacio interno para el contenedor */
-    margin: 20px; /* Márgenes alrededor del contenedor */
-    overflow: hidden; /* Asegura que no haya scroll dentro del contenedor */
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 50px; 
+    margin: 20px auto; 
+    overflow: visible;
+    max-width: 1200px;
+    width: 70%;
 }
-.container > div {
-    flex: 1; /* Ambos divs tendrán el mismo ancho */
-    padding: 20px; /* Espacio interno dentro de los divs */
-    background-color: #f4f4f4;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+.container > .ifr {
+    flex: 1; 
+    padding: 40px; 
+    background-color: var(--accent-color);
     display: flex;
     flex-direction: column; /* Organiza el contenido verticalmente */
     justify-content: space-between; /* Espacia los elementos equitativamente */
@@ -50,24 +59,52 @@ body, html {
     text-align: center; /* Centra el texto dentro del div */
 }
 
-.container > div p {
+.container > .ifr > .presentacion{
+    background-color: white;
+}
+
+.container > .ifr > .presentacion h2{
+    margin-top: 20px;
+}
+
+.container > .ifr > .presentacion p {
     padding: 50px;
     text-align: justify; /* Justifica el texto en el primer div */
     margin-bottom: 50px; /* Espacio inferior para separar del iframe */
+    max-width: 600px;
+    font-size: 14px;
 }
 
+.container > .imagen{
+    flex: 1;
+    padding: 20px;
+    border-radius: 100%;
+    background-color: white;
+}
+
+.container > .imagen img {
+    max-width: 90%; /* Asegura que la imagen no exceda el contenedor */
+    height: auto; /* Mantiene las proporciones de la imagen */
+    object-fit: contain; /* Asegura que la imagen sea completamente visible */
+}
+
+
+
 iframe {
-    width: 100%; /* Asegura que el iframe ocupe el ancho completo del contenedor */
-    height: 200px; /* Ajusta la altura del iframe */
+    width: 100%;
+    max-width: 600px; 
+    height: 250px; 
+    margin-top: 20px;
     margin-bottom: 20px; /* Espacio inferior */
 }
 
 .link {
-    margin-top: 10px;
-    color: var(--primary-color);
+    margin-top: 14px;
+    margin-bottom: 14px;
+    color: white;
     text-decoration: none;
     padding: 10px 20px;
-    background-color: var(--secondary-color);
+    background-color:var(--secondary-color);
     border-radius: 5px;
 }
 
@@ -78,9 +115,6 @@ img {
     
 }
 
-.container > div:nth-child(2) {
-    border-radius: 100%; /* Redondea el borde del segundo div */
-}
 
 .footer {
     flex-shrink: 0; /* Evita que el footer cambie de tamaño */
@@ -89,6 +123,8 @@ img {
     color: white;
     text-align: center;
     padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
 }
 
 /* Estilos Responsivos para pantallas más pequeñas */
@@ -97,13 +133,53 @@ img {
         flex-direction: column; /* Cambia la dirección de los elementos a columna */
         gap: 20px; /* Espacio más pequeño entre los divs */
         margin: 20px 20px; /* Márgenes laterales más pequeños */
+        overflow-y: auto;
+        width: auto;
+    }
+
+    .container > .ifr {
+        flex-direction: column-reverse;
     }
 
     .container > div {
         width: 100%; /* Los divs ocupan el 100% del ancho */
+        flex-direction: column-reverse;
+    }
+
+    .container > .imagen {
+        flex: none; /* Desactiva el comportamiento flexible */
+        width: 80%; /* Asegura que el div ocupe todo el ancho */
+        height: auto; /* Permite que la altura se ajuste automáticamente */
+        padding: 20px; /* Mantén algo de espacio interno */
+        display: flex; /* Centra la imagen dentro del div */
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+        margin-top: 250px;
+    }
+
+    .container > .imagen img {
+        max-width: 80%; /* Asegura que la imagen no exceda el ancho del contenedor */
+        height: auto; /* Mantén las proporciones de la imagen */
+    }
+
+    .container > .imagen {
+        order: -1; /* Mueve este div al principio */
+    }
+
+    .ifr > .i > iframe {
+        height: 200px;
     }
 
     iframe {
         max-width: 100%;
     }
+    
+    .container > .ifr > .presentacion{
+        margin-top: 30px;
+    }
+
+    .footer{
+        font-size: 10px;
+    }
+
 }
