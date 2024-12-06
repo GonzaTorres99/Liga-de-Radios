@@ -132,9 +132,10 @@ img {
     .container {
         flex-direction: column; /* Cambia la dirección de los elementos a columna */
         gap: 20px; /* Espacio más pequeño entre los divs */
-        margin: 20px 20px; /* Márgenes laterales más pequeños */
+        margin: 20px auto; /* Márgenes laterales más pequeños */
+        width: 85%;
         overflow-y: auto;
-        width: auto;
+        height: auto;
     }
 
     .container > .ifr {
@@ -153,7 +154,7 @@ img {
         padding: 20px; /* Mantén algo de espacio interno */
         display: flex; /* Centra la imagen dentro del div */
         justify-content: center; /* Centra horizontalmente */
-        align-items: center; /* Centra verticalmente */
+        align-items: center; /* Centra verticalmente */  
         margin-top: 250px;
     }
 
@@ -182,4 +183,15 @@ img {
         font-size: 10px;
     }
 
+}
+
+@media (max-width: 371px) {
+    .container > .imagen{
+        margin-top: 350px;
+    }
+
+    .link{
+        width: 100px;
+        font-size: 10px;
+    }
 }
