@@ -43,9 +43,10 @@ body, html {
     align-items: center; 
     gap: 50px; 
     margin: 20px auto; 
-    overflow: visible;
+    overflow:  hidden;
     max-width: 1200px;
     width: 70%;
+    height: auto;
 }
 
 .container > .ifr {
@@ -58,6 +59,7 @@ body, html {
     align-items: center; /* Centra el contenido horizontalmente */
     text-align: center; /* Centra el texto dentro del div */
 }
+
 
 .container > .ifr > .presentacion{
     background-color: white;
@@ -78,14 +80,25 @@ body, html {
 .container > .imagen{
     flex: 1;
     padding: 20px;
-    border-radius: 100%;
+    border-radius: 50%;
     background-color: white;
+    max-width: 100%;
+    display: flex; /* Centra la imagen dentro del div */
+    justify-content: center;
+    align-items: center;
 }
 
 .container > .imagen img {
     max-width: 90%; /* Asegura que la imagen no exceda el contenedor */
     height: auto; /* Mantiene las proporciones de la imagen */
     object-fit: contain; /* Asegura que la imagen sea completamente visible */
+}
+
+.container > .ifr > .i{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
 }
 
 
@@ -129,17 +142,24 @@ img {
 
 /* Estilos Responsivos para pantallas más pequeñas */
 @media (max-width: 768px) {
+    .header{
+        font-size: 14px;
+        height: 100px;
+    }
     .container {
         flex-direction: column; /* Cambia la dirección de los elementos a columna */
         gap: 20px; /* Espacio más pequeño entre los divs */
-        margin: 20px auto; /* Márgenes laterales más pequeños */
-        width: 85%;
+        margin: auto;
+        padding: auto ; /* Márgenes laterales más pequeños */
+        width: 100%;
         overflow-y: auto;
         height: auto;
     }
 
     .container > .ifr {
         flex-direction: column-reverse;
+        text-align: center;
+        width: 100%;
     }
 
     .container > div {
@@ -151,11 +171,8 @@ img {
         flex: none; /* Desactiva el comportamiento flexible */
         width: 80%; /* Asegura que el div ocupe todo el ancho */
         height: auto; /* Permite que la altura se ajuste automáticamente */
-        padding: 20px; /* Mantén algo de espacio interno */
-        display: flex; /* Centra la imagen dentro del div */
-        justify-content: center; /* Centra horizontalmente */
-        align-items: center; /* Centra verticalmente */  
-        margin-top: 250px;
+        padding: 20px; /* Mantén algo de espacio interno */  
+        margin-top: 480px;
     }
 
     .container > .imagen img {
@@ -186,12 +203,38 @@ img {
 }
 
 @media (max-width: 371px) {
+    .header{
+        font-size: 10px;
+        height: 100px;
+    }
+
+    .container {
+        width: 100%; /* Haz que ocupe todo el espacio disponible */
+        padding: 0;
+        margin: 0;
+        gap: 10px;
+    }
+
+    .container > .ifr {
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .container > .ifr > .presentacion > p{
+         width: 100%;
+         padding: 30px;
+    }
+
+    .container > .ifr > .i{
+        width: 100%;
+    }
+
     .container > .imagen{
-        margin-top: 350px;
+        margin-top: 300px;
     }
 
     .link{
-        width: 100px;
+        width: 100%;
         font-size: 10px;
     }
 }
